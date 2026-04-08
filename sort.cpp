@@ -62,6 +62,17 @@ void sortWybor(int tab[], int rozmiar){
 }
 }
 
+//sortowanie przez wstawianie(praca wlasna pls nie ufac)
+// takie jak prestawianie kart by byly pokolei
+// wejscie; tab i rozmiar tab
+//wyjscie; nie
+void sortInsert(int tab[], int rozmiar){
+    for(int i = 1; i < rozmiar; i++)
+    for (int j = 0; j < rozmiar; j++)
+        if(tab[i] < tab[j])
+            swap(tab[i], tab[j]);
+}
+
 int main(int argc, char const *argv[])
 {
     cout << "START" << endl;
@@ -90,6 +101,13 @@ int main(int argc, char const *argv[])
     losowanieTab(tablica, rozmiarTab);
     czasStart = clock();
     sortWybor(tablica, rozmiarTab);
+    czasStop = clock();
+    wypiszTab(tablica, rozmiarTab);
+    czasOperacji(czasStart, czasStop);
+//wstawnianie
+    losowanieTab(tablica, rozmiarTab);
+    czasStart = clock();
+    sortInsert(tablica, rozmiarTab);
     czasStop = clock();
     wypiszTab(tablica, rozmiarTab);
     czasOperacji(czasStart, czasStop);
